@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main-layout {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0F0526 ;
+}
+
+.search-container {
+  align-items: "flex-end"; 
+  display: "flex";
+  width: "100%";
+}
+
+.search-block {
+  width: 80%!important;
+  margin: 50px 90px;
+}
+
+.location-header {
+  width: 80%;
+  background-color: #1A0859;
+  margin: 50px 90px;
+  padding: 20px 0px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.location-title {
+  padding: 5px 0px 20px;
+}
+
+.characters-layout {
+  display: block;
+  margin: 50px 90px;
+  width: 80%;
+}
+
+.card-column {
+  padding: 0px 0px 20px;
+}
+
+.character-card {
+  background-color: #1A0859;
+  color: whitesmoke;
+}
+
+.status-info {
+    background: #0F0526;
+    color: whitesmoke;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    font-size: 16px;
+    height: 35px;
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    z-index: 5;
+}
+
+.status-info-circle {
+  border-radius: 11px;
+  background-color: gray; /* default color */
+  height: 18px;
+  margin: 8px 8px 5px 0px;
+}
+
+.status-info-text {
+  margin: 5px 0px;
+}
