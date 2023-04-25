@@ -4,7 +4,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const LocationHeader = ({type, dimension, planet, residents}) => {
-    //console.log(params);
     return (
         <div className="location-header">            
             <Container>

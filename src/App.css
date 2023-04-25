@@ -39,7 +39,7 @@
 
 .main-layout {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   background-color: #0F0526 ;
 }
 
@@ -52,6 +52,19 @@
 .search-block {
   width: 80%!important;
   margin: 50px 90px;
+}
+
+.drop-down-planets {
+  width: 70%;
+  margin: 90px;
+  position: absolute;
+  top: 37vw;
+  opacity: 0.9;
+}
+
+.drop-down-planets li:hover {
+  color: whitesmoke;
+  background-color: mediumslateblue;
 }
 
 .location-header {
@@ -105,4 +118,8 @@
 
 .status-info-text {
   margin: 5px 0px;
+}
+
+html {
+  height: 100%;
 }

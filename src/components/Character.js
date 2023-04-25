@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
-import Badge from 'react-bootstrap/Badge';
 
 /*
     Las importaciones innecesarias, estados y variables que no usemos es mejor eliminarlas 
@@ -10,7 +8,6 @@ import Badge from 'react-bootstrap/Badge';
 */
 
 const Character = ({character_url}) => {
-    //console.log(character_url);
     const [character, setCharacter] = useState({});
     useEffect(() => {
         fetch(character_url)
@@ -31,6 +28,8 @@ const Character = ({character_url}) => {
     */
 
     //console.log(character);
+    
+    /* Set isAlive: default, alive, and dead colors */
     let statusColor = 'gray';
     if (character?.status == 'Alive') {
         statusColor = 'green';

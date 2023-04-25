@@ -1,35 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Badge from 'react-bootstrap/Badge';
 
-const SearchHeader = () => {
-    // const itemList = [
-    //     "Apple",
-    //     "Orange",
-    //     "Banana",
-    //     "Cherry",
-    //     "Milk",
-    //     "Peanuts",
-    //     "Butter",
-    //     "Tomato"
-    //   ];
-    // const [filteredList, setFilteredList] = new useState(itemList);
+const SearchHeader = ({setPlanet}) => {
+    const [filteredList, setFilteredList] = new useState([]);
     const searchChanged = (event) => {
-        // alert('changed');
-        //alert(event.target.value);
         let searchText = event.target.value;
-        //get list of names with text included
-        //https://rickandmortyapi.com/api/location/?name=eart
+        // Get list of names with text included
         fetch(`https://rickandmortyapi.com/api/location/?name=${searchText}`)
         .then(res => res.json())
-        .then(res => {
-            //setLocationData(res)
-            console.log(res);
-            //setFilteredList(res?.results);
-        });
-
+        .then(res => (res.results).slice(0, 5))
+        .then(res => setFilteredList(res));
     };
+
+    /*
+    * Display or Hide Planets' Search Box Drop Down Listener
+    */
+    document.addEventListener('click', function handleClickOutsideBox(event) {
+        const clickableBox = document.getElementById('planetsearchbox');
+        const dropDownBox = document.getElementById('dropDownPlanetsBox');
+      
+        if (!clickableBox.contains(event.target)) {
+          dropDownBox.style.display = 'none';
+        } else {
+            dropDownBox.style.display = 'block';
+        }
+    });
+    
+    const loadPlanetPage = (planetId) => {
+        setPlanet(planetId);
+    }
 
     return (
         <div className="search-container">
@@ -39,6 +42,7 @@ const SearchHeader = () => {
                 <Form.Control
                 type="text"
                 name="planetsearch"
+                id="planetsearchbox"
                 placeholder="Search Planet"
                 aria-label="Search Planet"
                 onChange={(event) => searchChanged(event)}
@@ -47,13 +51,22 @@ const SearchHeader = () => {
                 Search
                 </Button>
             </InputGroup>
-            {/* <div id="item-list">
-                <ol>
-                    {filteredList.map((item, index) => (
-                    <li key={index}>{item}</li>
-                    ))}
-                </ol>
-            </div> */}
+
+            <ListGroup as="ul" className='drop-down-planets' id="dropDownPlanetsBox">
+                {filteredList.map((planetInfo) => (
+                    <ListGroup.Item as="li" action key={planetInfo?.id} className="d-flex justify-content-between align-items-start"
+                    onClick={() => 
+                    loadPlanetPage(planetInfo?.id)
+                    }
+                    >
+                        {planetInfo?.name}
+                        <Badge bg="primary" pill>
+                            {planetInfo?.residents.length}
+                        </Badge>
+                    </ListGroup.Item>
+                )   
+                )}
+            </ListGroup>
 
         </div>
     );
