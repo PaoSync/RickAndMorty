@@ -5,6 +5,11 @@ import SearchHeader from './SearchHeader';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 
+/*
+    Las importaciones innecesarias, estados y variables que no usemos es mejor eliminarlas 
+    para tener un codigo mas limpio y optimo.
+*/
+
 const Location = () => {  
     const [locationData, setLocationData] = useState({});
     const [locations, setLocations] = useState({});

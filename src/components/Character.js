@@ -4,6 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 
+/*
+    Las importaciones innecesarias, estados y variables que no usemos es mejor eliminarlas 
+    para tener un codigo mas limpio y optimo.
+*/
+
 const Character = ({character_url}) => {
     //console.log(character_url);
     const [character, setCharacter] = useState({});
@@ -12,6 +17,19 @@ const Character = ({character_url}) => {
         .then(res => res.json())
         .then(res => setCharacter(res))
     }, []);
+
+    /*
+        Hay mejores formas de mejorar el statusColor pero usar condiciones anidadas 
+        hace el codigo menos legible una buena solucion seria:
+
+        const statusColors = {
+            gray: 'gray',
+            green: 'green'
+        }
+
+        statusColors[character?.status] * nos retorna el color indicado
+    */
+
     //console.log(character);
     let statusColor = 'gray';
     if (character?.status == 'Alive') {
