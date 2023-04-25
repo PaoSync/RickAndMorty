@@ -16,6 +16,11 @@ const SearchHeader = ({setPlanet}) => {
         .then(res => setFilteredList(res));
     };
 
+
+    /*
+        El evento de click lo pudiste hacer con la syntaxis de React onClick
+    */
+
     /*
     * Display or Hide Planets' Search Box Drop Down Listener
     */
